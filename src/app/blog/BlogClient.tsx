@@ -3,6 +3,7 @@
 import { useState, useEffect, Suspense } from "react"
 import { useSearchParams, useRouter } from "next/navigation"
 import PostCard from "@/components/blog/PostCard"
+import AdBanner from "@/components/ads/AdBanner"
 import Pagination from "@/components/blog/Pagination"
 import { useMeta } from "@/components/blog/useMeta"
 import { useTrackView } from "@/lib/admin-store"
@@ -41,6 +42,7 @@ function BlogContent({ posts, settings }: { posts: AdminPost[]; settings: SiteSe
         <p className="mt-2 text-white/70 leading-relaxed max-w-xl">Latest news and articles across AI, Gaming, Esports & Tech</p>
       </header>
 
+      <AdBanner format="leaderboard" className="mb-8" />
       <div className="flex gap-8 mb-12" role="group" aria-label="Filter by category">
         {categories.map((cat) => (
           <button

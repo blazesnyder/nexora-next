@@ -152,6 +152,7 @@ export default function HomePage() {
                 {/* Trending Sidebar */}
                 {trendingPosts.length > 0 && (
                   <aside className="w-full lg:w-80 shrink-0">
+                    <AdBanner format="rectangle" className="mb-8" />
                     <p className="text-accent text-xs font-semibold uppercase mb-1">Trending</p>
                     <h2 className="text-2xl font-bold text-white mb-8">Popular</h2>
                     <div className="space-y-0">
@@ -176,7 +177,6 @@ export default function HomePage() {
                         </Link>
                       ))}
                     </div>
-                    <AdBanner format="rectangle" className="mt-8" />
                   </aside>
                 )}
               </div>
