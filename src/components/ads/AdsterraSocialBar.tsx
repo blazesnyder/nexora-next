@@ -1,8 +1,12 @@
 "use client"
 
+import { usePathname } from "next/navigation"
 import Script from "next/script"
 
 export default function AdsterraSocialBar() {
+  const pathname = usePathname()
+  if (pathname.startsWith("/admin")) return null
+
   return (
     <>
       <Script

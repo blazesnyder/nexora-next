@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import AdScript from "@/components/ads/AdScript";
 import AdsterraSocialBar from "@/components/ads/AdsterraSocialBar";
+import AdBanner from "@/components/ads/AdBanner";
 import ScrollToTop from "@/components/layout/ScrollToTop";
 import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import { LanguageProvider } from "@/lib/use-translation";
@@ -170,7 +171,10 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-page text-primary">
         <ThemeProvider>
           <LanguageProvider>
-            <div className="animate-fade-in flex-1 flex flex-col">{children}</div>
+            <div className="animate-fade-in flex-1 flex flex-col">
+              <AdBanner format="leaderboard" className="mt-0" />
+              {children}
+            </div>
           </LanguageProvider>
         </ThemeProvider>
         <ScrollToTop />

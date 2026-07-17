@@ -5,6 +5,7 @@ import Footer from "@/components/layout/Footer"
 import Link from "next/link"
 import Image from "next/image"
 import NewsletterSignup from "@/components/blog/NewsletterSignup"
+import AdBanner from "@/components/ads/AdBanner"
 import { useEffect, useMemo } from "react"
 import { useTrackView, usePosts } from "@/lib/admin-store"
 import Hero from "@/components/home/Hero"
@@ -173,6 +174,7 @@ export default function HomePage() {
                         </Link>
                       ))}
                     </div>
+                    <AdBanner format="rectangle" className="mt-8" />
                   </aside>
                 )}
               </div>
