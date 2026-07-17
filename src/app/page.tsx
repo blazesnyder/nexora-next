@@ -5,6 +5,8 @@ import Footer from "@/components/layout/Footer"
 import Link from "next/link"
 import Image from "next/image"
 import NewsletterSignup from "@/components/blog/NewsletterSignup"
+import AdLeaderboard from "@/components/ads/AdLeaderboard"
+import AdRectangle from "@/components/ads/AdRectangle"
 import { useEffect, useMemo } from "react"
 import { useTrackView, usePosts } from "@/lib/admin-store"
 import Hero from "@/components/home/Hero"
@@ -86,6 +88,8 @@ export default function HomePage() {
       <main className="flex-1">
         <Hero posts={posts} />
 
+        <AdLeaderboard />
+
         {/* Latest News + Trending */}
         {latestPosts.length > 0 && (
           <section className="py-16 md:py-20">
@@ -149,6 +153,7 @@ export default function HomePage() {
                 {/* Trending Sidebar */}
                 {trendingPosts.length > 0 && (
                   <aside className="w-full lg:w-80 shrink-0">
+                    <AdRectangle />
                     <p className="text-accent text-xs font-semibold uppercase mb-1">Trending</p>
                     <h2 className="text-2xl font-bold text-white mb-8">Popular</h2>
                     <div className="space-y-0">
