@@ -87,6 +87,8 @@ export default function HomePage() {
       <main className="flex-1">
         <Hero posts={posts} />
 
+        <AdBanner format="leaderboard" />
+
         {/* Latest News + Trending */}
         {latestPosts.length > 0 && (
           <section className="py-16 md:py-20">
