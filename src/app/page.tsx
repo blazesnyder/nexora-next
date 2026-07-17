@@ -55,7 +55,7 @@ export default function HomePage() {
   )
 
   const heroPosts = useMemo(() => sortedPosts.slice(0, 3), [sortedPosts])
-  const latestPosts = useMemo(() => sortedPosts.slice(3, 9), [sortedPosts])
+  const latestPosts = useMemo(() => sortedPosts.slice(3, 8), [sortedPosts])
   const trendingPosts = useMemo(() => sortedPosts.slice(9, 14), [sortedPosts])
 
   const heroSlugs = useMemo(
@@ -138,11 +138,11 @@ export default function HomePage() {
                         </Link>
                       </article>
                     ))}
-                  </div>
 
-                  <AdBanner format="rectangle" className="my-8" />
+                    <div className="flex items-center justify-center border border-white/10 p-4 min-h-[250px]">
+                      <AdBanner format="rectangle" className="m-0" />
+                    </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {latestPosts.slice(3).map((post) => (
                       <article key={post.slug}>
                         <Link href={`/blog/${post.slug}`} className="flex flex-col gap-3 group">
