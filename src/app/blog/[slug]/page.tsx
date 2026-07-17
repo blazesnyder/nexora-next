@@ -5,8 +5,9 @@ import PostClient from "./PostClient"
 
 export const dynamic = "force-dynamic"
 
-export default function BlogPostPage({ params }: { params: { slug: string } }) {
-  const post = getPostBySlug(params.slug)
+export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const post = getPostBySlug(slug)
   const settings = getSettings()
 
   return (

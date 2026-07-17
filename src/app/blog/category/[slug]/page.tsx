@@ -12,17 +12,18 @@ const categoryData: Record<string, { name: string; description: string }> = {
   tech: { name: "Tech", description: "Hardware reviews, software tutorials, and emerging tech trends" },
 }
 
-export default function CategoryPage({ params }: { params: { slug: string } }) {
+export default async function CategoryPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
   const allPosts = getPublishedPosts()
   const settings = getSettings()
-  const cat = categoryData[params.slug]
+  const cat = categoryData[slug]
 
   return (
     <div className="flex min-h-screen flex-col bg-transparent">
       <Header />
       <main className="flex-1">
         <CategoryClient
-          slug={params.slug}
+          slug={slug}
           cat={cat || null}
           posts={allPosts}
           settings={settings}

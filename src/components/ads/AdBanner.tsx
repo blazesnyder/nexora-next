@@ -42,24 +42,19 @@ export default function AdBanner({ format, className = "" }: AdBannerProps) {
 
     const cfg = AD_CONFIGS[format]
 
-    const script = document.createElement("script")
-    script.setAttribute("data-cfasync", "false")
+    ;(window as any).atOptions = {
+      key: cfg.key,
+      format: "iframe",
+      height: cfg.height,
+      width: cfg.width,
+      params: {},
+    }
 
-    script.innerHTML = `
-      atOptions = {
-        'key' : '${cfg.key}',
-        'format' : 'iframe',
-        'height' : ${cfg.height},
-        'width' : ${cfg.width},
-        'params' : {}
-      };
-      var s = document.createElement('script');
-      s.src = '${cfg.src}';
-      s.async = false;
-      document.currentScript.parentNode.appendChild(s);
-    `
-
-    container.appendChild(script)
+    const s = document.createElement("script")
+    s.src = cfg.src
+    s.async = false
+    s.setAttribute("data-cfasync", "false")
+    container.appendChild(s)
 
     return () => {
       container.innerHTML = ""
