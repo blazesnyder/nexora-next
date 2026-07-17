@@ -11,6 +11,13 @@ const AD_CONFIGS = {
     height: 90,
     className: "w-[728px] h-[90px]",
   },
+  rectangle: {
+    key: "a903d1a077889e5a2938913f3b04db5d",
+    src: "https://www.highperformanceformat.com/a903d1a077889e5a2938913f3b04db5d/invoke.js",
+    width: 300,
+    height: 250,
+    className: "w-[300px] h-[250px]",
+  },
 }
 
 type AdFormat = keyof typeof AD_CONFIGS

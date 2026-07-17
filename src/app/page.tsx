@@ -183,7 +183,7 @@ export default function HomePage() {
           </section>
         )}
 
-        <AdBanner format="leaderboard" />
+        <AdBanner format="rectangle" />
 
         {/* Categories with Previews */}
         <section className="border-t border-white/10 py-16 md:py-20">
@@ -236,8 +236,6 @@ export default function HomePage() {
             </div>
           </div>
         </section>
-
-        <AdBanner format="leaderboard" />
 
         <NewsletterSignup />
         <Footer />
