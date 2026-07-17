@@ -1,0 +1,88 @@
+import { NextResponse } from "next/server";
+
+const skills = [
+  {
+    id: 1,
+    title: "React Server Components",
+    slug: "react-server-components",
+    description: "Understand RSCs and how they differ from client components.",
+    difficulty: "Intermediate",
+    estimatedTime: "2 hours",
+    prerequisites: ["React basics", "Next.js basics"],
+    category: "Frontend",
+  },
+  {
+    id: 2,
+    title: "TypeScript Generics",
+    slug: "typescript-generics",
+    description: "Master generics, constraints, and conditional types.",
+    difficulty: "Advanced",
+    estimatedTime: "3 hours",
+    prerequisites: ["TypeScript fundamentals"],
+    category: "Languages",
+  },
+  {
+    id: 3,
+    title: "SQL Optimization",
+    slug: "sql-optimization",
+    description: "Learn indexing, query planning, and performance tuning.",
+    difficulty: "Advanced",
+    estimatedTime: "4 hours",
+    prerequisites: ["Basic SQL"],
+    category: "Databases",
+  },
+  {
+    id: 4,
+    title: "Git Rebase & Merge Strategies",
+    slug: "git-rebase-merge",
+    description: "Resolve conflicts and maintain a clean commit history.",
+    difficulty: "Intermediate",
+    estimatedTime: "1.5 hours",
+    prerequisites: ["Basic Git"],
+    category: "DevOps",
+  },
+  {
+    id: 5,
+    title: "CSS Grid & Flexbox Mastery",
+    slug: "css-grid-flexbox",
+    description: "Build complex layouts with Grid and Flexbox.",
+    difficulty: "Beginner",
+    estimatedTime: "2 hours",
+    prerequisites: [],
+    category: "Frontend",
+  },
+  {
+    id: 6,
+    title: "Docker for Developers",
+    slug: "docker-for-developers",
+    description: "Containerize apps and manage multi-service environments.",
+    difficulty: "Intermediate",
+    estimatedTime: "3 hours",
+    prerequisites: ["Command line basics"],
+    category: "DevOps",
+  },
+  {
+    id: 7,
+    title: "Node.js Streams",
+    slug: "nodejs-streams",
+    description: "Process data efficiently using Node.js streams.",
+    difficulty: "Advanced",
+    estimatedTime: "2.5 hours",
+    prerequisites: ["Node.js fundamentals"],
+    category: "Backend",
+  },
+  {
+    id: 8,
+    title: "Web Accessibility (WCAG)",
+    slug: "web-accessibility-wcag",
+    description: "Make websites accessible following WCAG 2.2 guidelines.",
+    difficulty: "Beginner",
+    estimatedTime: "2 hours",
+    prerequisites: [],
+    category: "Frontend",
+  },
+];
+
+export async function GET() {
+  return NextResponse.json(skills);
+}
