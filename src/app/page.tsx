@@ -98,28 +98,72 @@ export default function HomePage() {
                 <div className="flex-1 min-w-0">
                   <p className="text-accent text-xs font-semibold uppercase mb-1">Latest</p>
                   <h2 className="text-2xl font-bold text-white mb-8">Latest News</h2>
-                  <div className="divide-y divide-white/10">
-                    {latestPosts.map((post) => (
-                      <article key={post.slug} className="py-6 first:pt-0 last:pb-0">
-                        <Link href={`/blog/${post.slug}`} className="flex flex-col sm:flex-row gap-5 group">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {latestPosts.slice(0, 3).map((post) => (
+                      <article key={post.slug}>
+                        <Link href={`/blog/${post.slug}`} className="flex flex-col gap-3 group">
                           {post.featuredImage ? (
-                            <div className="relative w-full sm:w-48 shrink-0 aspect-[16/9] overflow-hidden">
+                            <div className="relative w-full aspect-[16/9] overflow-hidden">
                               <Image
                                 src={post.featuredImage}
                                 alt=""
                                 fill
                                 className="object-cover group-hover:scale-[1.02] transition-transform duration-700"
-                                sizes="(max-width: 640px) 100vw, 192px"
+                                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                               />
                             </div>
                           ) : (
-                            <div className="w-full sm:w-48 aspect-[16/9] bg-white/5 shrink-0" />
+                            <div className="w-full aspect-[16/9] bg-white/5" />
                           )}
                           <div className="flex flex-col min-w-0">
                             <span className="text-accent text-xs font-semibold uppercase mb-1">
                               {post.category}
                             </span>
-                            <h3 className="text-lg font-bold text-white leading-snug mb-1">
+                            <h3 className="text-base font-bold text-white leading-snug mb-1 group-hover:text-white/80 transition-colors">
+                              {post.title}
+                            </h3>
+                            {post.excerpt && (
+                              <p className="text-white/60 text-sm leading-relaxed line-clamp-2 mb-2">
+                                {post.excerpt}
+                              </p>
+                            )}
+                            <div className="flex items-center gap-2 text-white/40 text-sm mt-auto">
+                              <span>By {post.authorEmail ? post.authorEmail.split("@")[0] : "Nexora Team"}</span>
+                              <span>·</span>
+                              <time dateTime={post.createdAt}>
+                                {formatDate(post.createdAt)}
+                              </time>
+                            </div>
+                          </div>
+                        </Link>
+                      </article>
+                    ))}
+                  </div>
+
+                  <AdBanner format="rectangle" className="my-8" />
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {latestPosts.slice(3).map((post) => (
+                      <article key={post.slug}>
+                        <Link href={`/blog/${post.slug}`} className="flex flex-col gap-3 group">
+                          {post.featuredImage ? (
+                            <div className="relative w-full aspect-[16/9] overflow-hidden">
+                              <Image
+                                src={post.featuredImage}
+                                alt=""
+                                fill
+                                className="object-cover group-hover:scale-[1.02] transition-transform duration-700"
+                                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                              />
+                            </div>
+                          ) : (
+                            <div className="w-full aspect-[16/9] bg-white/5" />
+                          )}
+                          <div className="flex flex-col min-w-0">
+                            <span className="text-accent text-xs font-semibold uppercase mb-1">
+                              {post.category}
+                            </span>
+                            <h3 className="text-base font-bold text-white leading-snug mb-1 group-hover:text-white/80 transition-colors">
                               {post.title}
                             </h3>
                             {post.excerpt && (
@@ -182,8 +226,6 @@ export default function HomePage() {
             </div>
           </section>
         )}
-
-        <AdBanner format="rectangle" />
 
         {/* Categories with Previews */}
         <section className="border-t border-white/10 py-16 md:py-20">
