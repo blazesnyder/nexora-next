@@ -3,6 +3,7 @@
 import Header from "@/components/layout/Header"
 import Footer from "@/components/layout/Footer"
 import Link from "next/link"
+import AdBanner from "@/components/ads/AdBanner"
 
 const values = [
   {
@@ -67,7 +68,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        <div className="border-t border-white/10 my-20" />
+        <AdBanner format="leaderboard" className="my-12" />
 
         {/* Our Mission */}
         <section className="py-20 md:py-24">

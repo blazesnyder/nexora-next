@@ -4,6 +4,7 @@ import Header from "@/components/layout/Header"
 import Footer from "@/components/layout/Footer"
 import { useState } from "react"
 import { useAdminStore } from "@/lib/admin-store"
+import AdBanner from "@/components/ads/AdBanner"
 
 export default function ContactPage() {
   const [name, setName] = useState("")
@@ -41,6 +42,8 @@ export default function ContactPage() {
               to you as soon as possible.
             </p>
           </div>
+
+          <AdBanner format="leaderboard" className="mb-12" />
 
           <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
             <div className="lg:col-span-3">

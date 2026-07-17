@@ -4,6 +4,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { formatDate } from "@/lib/date"
 import BlockRenderer from "@/components/blog/BlockRenderer"
+import AdBanner from "@/components/ads/AdBanner"
 import { useSettings } from "@/lib/admin-store"
 
 interface ArticleContentProps {
@@ -82,6 +83,8 @@ export default function ArticleContent({ post, settings }: ArticleContentProps) 
             <p className="text-white/70">No content available.</p>
           )}
         </div>
+
+        <AdBanner format="leaderboard" className="my-12" />
 
         <hr className="border-t border-white/10 my-16" />
 

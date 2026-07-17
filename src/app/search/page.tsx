@@ -6,6 +6,7 @@ import { Suspense, useMemo, useState, useEffect, useRef } from "react"
 import Header from "@/components/layout/Header"
 import Footer from "@/components/layout/Footer"
 import { usePosts, useTrackView } from "@/lib/admin-store"
+import AdBanner from "@/components/ads/AdBanner"
 
 function highlightMatch(text: string, query: string) {
   if (!query) return text
@@ -69,6 +70,8 @@ function SearchContent() {
           <h1 className="text-3xl md:text-4xl font-bold text-white mb-6">Search</h1>
           <p className="text-white/70 text-sm">Find articles across Nexora</p>
         </div>
+
+        <AdBanner format="leaderboard" className="mb-12" />
 
         <div className="mb-12">
           <div className="relative">

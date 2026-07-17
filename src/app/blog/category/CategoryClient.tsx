@@ -4,6 +4,7 @@ import { useEffect, Suspense } from "react"
 import Link from "next/link"
 import { useSearchParams } from "next/navigation"
 import PostCard from "@/components/blog/PostCard"
+import AdBanner from "@/components/ads/AdBanner"
 import Pagination from "@/components/blog/Pagination"
 import { useMeta } from "@/components/blog/useMeta"
 import { useTrackView } from "@/lib/admin-store"
@@ -73,6 +74,8 @@ function CategoryContent({ slug, cat, posts, settings }: {
         <h1 className="text-3xl md:text-4xl font-bold text-white">{cat.name}</h1>
         <p className="mt-2 text-white/70 leading-relaxed max-w-xl">{cat.description}</p>
       </header>
+
+      <AdBanner format="leaderboard" className="mb-8" />
 
       <div className="flex gap-8 mb-12" role="group" aria-label="Filter by category">
         {categoryPills.map((pill) => {
